@@ -9,10 +9,21 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * Implements the
+ */
 public class Code {
 
   private final char[] secret;
 
+  /**
+   * Generates a secret code to then be solved by the user. Uses a certain pool of characters, with
+   * a determined length, then randomizes the characters to generate a secret code.
+   *
+   * @param pool Allotted pool of characters to use.
+   * @param length Length of the code generated.
+   * @param rng Instance of Random to generate the code.
+   */
   public Code(String pool, int length, Random rng) {
     secret = new char[length];
     for (int i = 0; i < secret.length; i++) {
@@ -25,6 +36,9 @@ public class Code {
     return new String(secret);
   }
 
+  /**
+   * Represents an attempt to guess the code
+   */
   public class Guess {
 
     private static final String STRING_FORMAT = "{text: \"%s\", correct: %d, close: %d}";
@@ -33,6 +47,12 @@ public class Code {
     private final int correct;
     private final int close;
 
+    /**
+     * Receives and compares the input guess to the secret code and calculates the amount correct,
+     * and the amount close to the secret code.
+     *
+     * @param text Guess input from the user.
+     */
     public Guess(String text) {
       this.text = text;
       int correct = 0;
@@ -85,14 +105,23 @@ public class Code {
       return String.format(STRING_FORMAT, text, correct, close);
     }
 
+    /**
+     * Returns the text of the guess
+     */
     public String getText() {
       return text;
     }
 
+    /**
+     * Returns the amount of correct inputs (correct guess in correct position).
+     */
     public int getCorrect() {
       return correct;
     }
 
+    /**
+     * Returns the amount of close inputs (correct guess in wrong position).
+     */
     public int getClose() {
       return close;
     }
