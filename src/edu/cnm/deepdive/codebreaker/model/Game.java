@@ -49,6 +49,18 @@ public class Game {
     return guesses.size();
   }
 
+  /**
+   * Evaluates the submitted {@link Guess} submitted by the user to then determine whether or not
+   * the submitted answer is a legal guess. Defines {@link IllegalGuessCharacterException} and
+   * {@link IllegalGuessLengthException} and compares the guess to determine eligibility for the
+   * game.
+   * @param text The submitted text of the guess
+   * @return Returns inputted guess
+   * @throws IllegalGuessLengthException Matches the inputted {@link Guess} length to
+   * the {@link Code}.
+   * @throws IllegalGuessCharacterException Determines whether the {@link Guess} characters match
+   * those allowed in the pool of eligible characters.
+   */
   public Guess guess(String text)
       throws IllegalGuessLengthException, IllegalGuessCharacterException{
     if (text.length() != length) {

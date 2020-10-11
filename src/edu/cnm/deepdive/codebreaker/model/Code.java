@@ -10,7 +10,8 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * Implements the
+ * Implements the generation of the {@link Code} and then takes in a {@link Guess} from the user and
+ * compares them. A new Map is created and compares the Guess to the Code generated.
  */
 public class Code {
 
